@@ -82,7 +82,7 @@ Some measures signatures are based on:
 
 All of this information is stored in about 500 bytes per customer and contains simple statistical summaries of that customer. Each parameter in the signature **X** is updated by a version of an EWMA,
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/ewma.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/ewma.png" /></p>
 
 where <img src="/fraud-telecom-overview/pretty-math/X_p.png" /> and <img src="/fraud-telecom-overview/pretty-math/X_n.png" /> are previous and new values of the parameter and <img src="/fraud-telecom-overview/pretty-math/D_c.png" /> is the information that comes from the current call. Two important parameters must be set: <img src="/fraud-telecom-overview/pretty-math/theta.png" /> and the updating interval. These together determine how quickly new information washes out old information. Possible strategies of setting the parameters:
 - Multiply <img src="/fraud-telecom-overview/pretty-math/theta.png" /> by <img src="/fraud-telecom-overview/pretty-math/log.png" />, where r is the calling rate to ensure old information is not washed out too quickly.
@@ -97,19 +97,19 @@ AT&T uses **many** detection algorithms, each of which tends to be **simple**, r
 
 #### 3. Moving to Graph-Based Signatures
 
-**Social networks** of fraudsters are another source of information that can help identify fraud cases. The *callgraph network* (denoted G_t at time t) is a conceptualization of the call detail data as a graph, where nodes are phone numbers and directed edges represent communication between those numbers. In order to be able to extract the social network easily for any one of the hundreds of millions of members, AT&T developed a framework known as the *community of interest (COI) signature* for each telephone number. This includes the top numbers (top-*k*) called by the target number and the top numbers that call that number. Thus each phone number has its small graph and the union of these graphs make up G_t.
+**Social networks** of fraudsters are another source of information that can help identify fraud cases. The *callgraph network* (denoted <img src="/fraud-telecom-overview/pretty-math/G_t_big.png" /> at time t) is a conceptualization of the call detail data as a graph, where nodes are phone numbers and directed edges represent communication between those numbers. In order to be able to extract the social network easily for any one of the hundreds of millions of members, AT&T developed a framework known as the *community of interest (COI) signature* for each telephone number. This includes the top numbers (top-*k*) called by the target number and the top numbers that call that number. Thus each phone number has its small graph and the union of these graphs make up <img src="/fraud-telecom-overview/pretty-math/G_t_big.png" />.
 
 The signature needs to deal with the fact that phone numbers are transient - a large turnover of the phone number space is possible over the course of several months. Graph signatures are updated by a variant of the exponential smoothing:
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/ewma_graph.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/ewma_graph.png" /></p>
 
-where the circle operator is a graph sum operation, G_{t-1}^ denotes the top-*k* approximation of G_{t-1} at time t-1, and g_t denotes the graph derived from the new transactions at step t. The following figure might help to understand the concept easily:
+where the circle operator is a graph sum operation, <img src="/fraud-telecom-overview/pretty-math/G_t_1_hat.png" /> denotes the top-*k* approximation of <img src="/fraud-telecom-overview/pretty-math/G_t_1.png" /> at time t-1, and <img src="/fraud-telecom-overview/pretty-math/g_t.png" /> denotes the graph derived from the new transactions at step t. The following figure might help to understand the concept easily:
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/topk.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/topk.png" /></p>
 
 Based on these, a **"guilt by association"** module was established to lead the company to new fraud cases. For example, a new suspicious number appears (labeled suspect on the figure below). After it has established its COI signature through calling behavior, an extended social network is built and visualized in a graph. By coloring the nodes of known fraudulent numbers, a probability of fraud gets calculated for all new numbers, and a ranked list is sent to the fraud investigators.
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/guilt_by_assoc.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/guilt_by_assoc.png" /></p>
 
 
 #### 4. Catching Fraud with Graph Matching
@@ -119,13 +119,13 @@ COI signatures has also been useful in tracking down miscreants who try to cover
 The distance function is based on the overlap between the two graphs and the proportion of the overall communication accounted for by those overlapping nodes. Two metrics used:
 - Dice criterion for two sets *A* and *B*:
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/dice.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/dice.png" /></p>
 
 A weighted version of this criterion is used to account for the weights on the edges.
 
 - Hellinger distance applied to graph matching:
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/hellinger.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/hellinger.png" /></p>
 
 where *w* represents the weights on the edges in the overlapping part of the graphs.
 
@@ -142,7 +142,7 @@ Another reason to have people in the loop is that it means that the fraud detect
 
 A visualization tool enables a fraud analyst to view and understand perhaps thousands of calls at once. The goal is to display all the recent call detail, to allow the analyst to see the potentially fraudulent calls in the context of the normal calling pattern. For this, AT&T provides a tool based on the Yoix language, which itself is built atop Java. The tool provides a plot with a time axis and interactive histograms of various call characteristics that allow the analyst to display interesting subsets of the data.
 
-<p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/at_t_visualization.png" /></p>
+<p align="center"><img src="/wiki/fraud-telecom-overview/at_t_visualization.png" /></p>
 
 The above figure shows a fraud event, in which the normal calling pattern is overlaid by many calls to a foreign country historically associated with fraud. Detecting these calls is easy, because many of them is of the same duration.
 
