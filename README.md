@@ -62,12 +62,10 @@ Having a database allows for retrospective analyses and provides the means of te
 
 The system must automatically filter the data looking for unusual usage patterns, and then algorithms or people can look at the unusual parts to investigate the potential fraud.
 
+TBA:
 ##### Early Threshold-Based Alerting
-
 ##### Signature-Based Alerting
-
 ##### Moving to Graph-Based Signatures
-
 ##### Catching Fraud with Graph Matching
 
 
@@ -83,6 +81,24 @@ Another reason to have people in the loop is that it means that the fraud detect
 
 A visualization tool enables a fraud analyst to view and understand perhaps thousands of calls at once. The goal is to display all the recent call detail, to allow the analyst to see the potentially fraudulent calls in the context of the normal calling pattern. For this, AT&T provides a tool based on the Yoix language, which itself is built atop Java. The tool provides a plot with a time axis and interactive histograms of various call characteristics that allow the analyst to display interesting subsets of the data.
 
+![Screenshot](https://github.com/rebarbara/fraud/blob/master/at_t_visualization.png)
+
+The above figure shows a fraud event, in which the normal calling pattern is overlaid by many calls to a foreign country historically associated with fraud. Detecting these calls is easy, because many of them is of the same duration.
+
+This screenshot is static and monochromatic, but real displays are fully interactive and use color to encode categorical variables. The analyst may, for example, pop up a histogram that shows the number of calls going to each country, etc.
+
+
 ## Implementation
 
+TBA
+
 ## Conclusion
+
+Some common themes found in cases dealing with extremely large datasets over the years at AT&T:
+
+- The need to join data analysis and data management.
+- Inadequacy of large models.
+- Necessity of humans.
+- Need for fast feedback loops.
+- Importance of flexibility.
+
