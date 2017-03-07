@@ -83,9 +83,9 @@ All of this information is stored in about 500 bytes per customer and contains s
 
 ![EWMA](https://github.com/rebarbara/fraud/blob/master/fraud-telecom-overview/ewma.png)
 
-where **X_p** and **X_n** are previous and new values of the parameter and **D_c** is the information that comes from the current call. Two important parameters must be set: \theta and the updating interval. These together determine how quickly new information washes out old information. Possible strategies of setting the parameters:
-- Multiply \theta by 1/log_2(r), where r is the calling rate to ensure old information is not washed out too quickly.
-- Optimize \theta using machine learning methods. Look at the signature as a predictive function - the best value of the parameter is the ones that best predicts future behavior. 
+where **X_p** and **X_n** are previous and new values of the parameter and **D_c** is the information that comes from the current call. Two important parameters must be set: **theta** and the updating interval. These together determine how quickly new information washes out old information. Possible strategies of setting the parameters:
+- Multiply **theta** by 1/log_2(r), where r is the calling rate to ensure old information is not washed out too quickly.
+- Optimize **theta** using machine learning methods. Look at the signature as a predictive function - the best value of the parameter is the ones that best predicts future behavior. 
 
 **Signature initialization:** When there is no prior signature, data values from the first two calls are used to select an initial signature from a set of empirically built signatures. Old signatures that are not reinforced by new calls within a month or so are dropped completely.
 
@@ -102,7 +102,7 @@ The signature needs to deal with the fact that phone numbers are transient - a l
 
 ![Exponential smoothing for graphs](https://github.com/rebarbara/fraud/blob/master/fraud-telecom-overview/ewma_graph.png)
 
-where the _ operator is a graph sum operation, G_{t-1}' denotes the top-*k* approximation of G_{t-1} at time t-1, and g_t denotes the graph derived from the new transactions at step t. The following figure might help to understand the concept easily:
+where the circle operator is a graph sum operation, G_{t-1}^ denotes the top-*k* approximation of G_{t-1} at time t-1, and g_t denotes the graph derived from the new transactions at step t. The following figure might help to understand the concept easily:
 
 ![Guilt by association graph](https://github.com/rebarbara/fraud/blob/master/fraud-telecom-overview/guilt_by_assoc.png)
 
