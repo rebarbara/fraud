@@ -84,9 +84,9 @@ All of this information is stored in about 500 bytes per customer and contains s
 
 <p align="center"><img src="https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/ewma.png" /></p>
 
-where **X_p** and **X_n** are previous and new values of the parameter and **D_c** is the information that comes from the current call. Two important parameters must be set: **theta** and the updating interval. These together determine how quickly new information washes out old information. Possible strategies of setting the parameters:
-- Multiply **theta** by 1/log_2(r), where r is the calling rate to ensure old information is not washed out too quickly.
-- Optimize **theta** using machine learning methods. Look at the signature as a predictive function - the best value of the parameter is the ones that best predicts future behavior. 
+where <img src="/fraud-telecom-overview/pretty-math/X_p.png" /> and <img src="/fraud-telecom-overview/pretty-math/X_n.png" /> are previous and new values of the parameter and <img src="/fraud-telecom-overview/pretty-math/D_c.png" /> is the information that comes from the current call. Two important parameters must be set: <img src="/fraud-telecom-overview/pretty-math/theta.png" /> and the updating interval. These together determine how quickly new information washes out old information. Possible strategies of setting the parameters:
+- Multiply <img src="/fraud-telecom-overview/pretty-math/theta.png" /> by <img src="/fraud-telecom-overview/pretty-math/log.png" />, where r is the calling rate to ensure old information is not washed out too quickly.
+- Optimize <img src="/fraud-telecom-overview/pretty-math/theta.png" /> using machine learning methods. Look at the signature as a predictive function - the best value of the parameter is the ones that best predicts future behavior. 
 
 **Signature initialization:** When there is no prior signature, data values from the first two calls are used to select an initial signature from a set of empirically built signatures. Old signatures that are not reinforced by new calls within a month or so are dropped completely.
 
