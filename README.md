@@ -22,7 +22,7 @@ There are many more fraud techniques, some of which are quite sophisticated and 
 
 ## Detecting Fraud
 
-In the authors' experience for massive data streams, there is no way to effectively separate data analysis from the larger issues of data delivery, data management, and data storage. In the next sections, they describe the fraud detection framework developed at AT&T over the years and how data analysis fits into the broader scheme.
+In the authors' experience for massive data streams, there is no way to effectively separate data analysis from the larger issues of data delivery, data management, and data storage. In the next subsections, they describe the fraud detection framework developed at AT&T over the years and how data analysis fits into the broader scheme.
 
 Key components of a fraud detection system:
 - a continuing source of call detail data,
@@ -30,8 +30,6 @@ Key components of a fraud detection system:
 - a set of detection algorithms,
 - people to verify fraud and implement corrective measures,
 - visualization tools to help people make diagnoses.
-
-Experience in each of these areas is described in the following subsections.
 
 
 ### Data Sources
@@ -43,9 +41,23 @@ Analyzed data comprises records of phone calls. Common data formats:
 - *SS7 signalling data:* used to set up calls, independent of the voice network, similar in volume to AMA, can be collected real-time. Additional advantage: can be sampled at call setup, avoiding the delay until call completion.
 - *Line Information Database (LIDB):* gives the status of other calls, such as bill-to-third party, and calling card calls.
 
-Along with all these data, we also must deal with a contunuous stream of metadata. This large data stream brings greatly increased complexity. The tight integration of data analysis and data management is a direct result of the volume and complexity of the data sources.
+Along with all these data, a continuous stream of metadata must also be dealt with. This large data stream brings greatly increased complexity. The tight integration of data analysis and data management is a direct result of the volume and complexity of the data sources.
 
 ### Storage
+
+AT&T required a database that
+- could be updated in real time,
+- could hold vast amounts of historical data in minimal disk space,
+- had the ability to retrieve thousands of call records quickly.
+
+Chosen DBMS: Daytona. Characteristics and strategy:
+- Use both field-level and record-level compression. Besides sparing disk space this also speeds up retrieval time for queries: fewer bytes accessed from disk. Typical query for 2000 international calls < a minute.
+- Store all of the call detail for several years to provide a lengthy historical reference.
+- As the call detail arrives, each record is augmented with supporting information (e.g. estimated retail cost, type of service, business/residence). Consistency checks.
+
+Having a database allows for retrospective analyses and provides the means of testing new algorithms on historical data. Also provides historical view of individual calling patterns, so the deviations from normal can be seen.
+
+
 ### Detection
 ### The Role of Humans
 ### Visualization
