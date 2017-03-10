@@ -11,8 +11,8 @@ about 500 bytes per customer.
 
 A generic fraud signature is defined *(or maybe more)*.
 
-An incoming call is compared both to the current signature of the customer
-and the generic fraud signature. If it resembles normal usage pattern more,
+**An incoming call is compared both to the current signature of the customer
+and the generic fraud signature.** If it resembles normal usage pattern more,
 then its characteristics are used to update the signature. If it
 resembles fraudulent usage pattern more, the customer's fraud score is
 increased.
