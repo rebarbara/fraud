@@ -20,7 +20,7 @@ distribution of call duration, regions of the world called, most frequent
 countries and phone numbers called, etc. Such information can be stored in
 about 500 bytes per customer.
 
-A generic fraud signature is defined *(or maybe more)*.
+A generic fraud signature is defined *(maybe more?)*.
 
 An incoming call is compared both to the current signature of the customer
 and the generic fraud signature. If it resembles normal usage pattern more,
@@ -34,6 +34,7 @@ algorithms rather than one single complex model. Various algorithms may
 generate an alert on the same number, and these alerts are combined into a
 single case to be investigated.
 
+<br>
 
 ### Graph-Based Signatures
 
