@@ -2,7 +2,7 @@
 
 <br>
 
-### 1. Signature-Based Alerting
+#### 1. Signature-Based Alerting
 
 **Purpose:** Alert for numbers that exhibit suspicious behavior.
 
@@ -36,9 +36,8 @@ single case to be investigated.
 </details>
 
 
-<br>
 
-### 2. Graph-Based Signatures
+#### 2. Graph-Based Signatures
 
 **Purpose:** Alert if a new number's social network contains known fraudsters.
 
@@ -51,10 +50,10 @@ of fraud is calculated and sent to investigators.
   <summary>Expand</summary>
   <br>
 Social networks of fraudsters are another source of information that can help
-identify fraud cases. The *callgraph network* is a conceptualization of the 
+identify fraud cases. The callgraph network is a conceptualization of the 
 call detail data as a graph, where nodes are phone numbers and directed edges 
 represent communication between them. To extract the social network of each 
-customer easily, a *community of interest (COI) signature* is used.
+customer easily, a community of interest (COI) signature is used.
 This includes the top numbers called by the target number and the top numbers 
 that call that number. Thus each phone number has its small graph and the
 union of these makes up the callgraph network.
@@ -68,9 +67,8 @@ can be calculated for all new numbers and a ranked list can be sent to the
 fraud investigators.
 </details>
 
-<br>
 
-### 3. Graph Matching
+#### 3. Graph Matching
 
 **Purpose:** Find "repetitive debtors".
 
