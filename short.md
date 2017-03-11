@@ -1,5 +1,7 @@
 # Telecom Fraud Overview
 
+<br>
+
 ### Signature-Based Alerting
 
 <hr>
@@ -70,20 +72,20 @@ fraud investigators.
 
 ### Graph Matching
 
-<hr>
 
-**Purpose:** Find "repetitive debtors".
 
-**Method:** Match COI signatures of new numbers to the signatures in the
-repetitive debtors database (RDD).
+**_Purpose:_** *Find "repetitive debtors".*
 
-<hr>
+**_Method:_** *Match COI signatures of new numbers to the signatures in the
+repetitive debtors database (RDD).*
 
-COI signatures has also been useful in tracking down miscreants who try to 
+
+
+COI signatures has also been useful in tracking down fraudsters who try to 
 cover their tracks by changing their phone number, name or address. The 
 RDD is designed to keep a running database of COI signatures of delinquent 
-customers for this purpose. Intuition: build COI signatures on all new accounts 
-and match them to the signatures in the RDD to find these fraudsters.
+customers for this purpose. To find them, COI signatures on all new accounts 
+are built and matched to the signatures in the RDD.
 
 The distance function is based on the overlap between the two graphs and the 
 proportion of the overall communication accounted for by those overlapping 
