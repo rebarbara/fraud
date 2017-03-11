@@ -20,9 +20,8 @@ distribution of call duration, regions of the world called, most frequent
 countries and phone numbers called, etc. Such information can be stored in
 about 500 bytes per customer.
 
-A generic fraud signature is defined *(maybe more?)*.
-
-An incoming call is compared both to the current signature of the customer
+A generic fraud signature is defined. An incoming call is compared both to 
+the current signature of the customer
 and the generic fraud signature. If it resembles normal usage pattern more,
 then its characteristics are used to update the signature. If it
 resembles fraudulent usage pattern more, the customer's fraud score is
@@ -40,12 +39,12 @@ single case to be investigated.
 
 <hr>
 
-**Purpose:** Alert for numbers that exhibit suspicious behavior.
+**Purpose:** Alert if a new number's social network contains known fraudsters.
 
-**Method:** Maintain a signature for each customer based on comprehensive
-call records. Compare new calls to the signature and to a generic fraud
-pattern. Increase fraud score or update signature. Signal if fraud score
-passes threshold.
+**Method:** Community of interest (COI) signature is maintained for each customer
+containing top called numbers and top numbers that called them. Based on the
+presence of known fraudsters in a new number's social network, a probability
+of fraud is calculated and sent to investigators.
 
 <hr>
 
@@ -65,3 +64,30 @@ calling behavior, an extended social network can be built and visualized as a
 graph. By coloring the nodes of known fraudulent numbers, probability of fraud
 can be calculated for all new numbers and a ranked list can be sent to the 
 fraud investigators.
+
+
+<br>
+
+### Graph Matching
+
+<hr>
+
+**Purpose:** Find "repetitive debtors".
+
+**Method:** Match COI signatures of new numbers to the signatures in the
+repetitive debtors database (RDD).
+
+<hr>
+
+COI signatures has also been useful in tracking down miscreants who try to 
+cover their tracks by changing their phone number, name or address. The 
+RDD is designed to keep a running database of COI signatures of delinquent 
+customers for this purpose. Intuition: build COI signatures on all new accounts 
+and match them to the signatures in the RDD to find these fraudsters.
+
+The distance function is based on the overlap between the two graphs and the 
+proportion of the overall communication accounted for by those overlapping 
+nodes. Two variants are used, both can be efficiently calculated for large
+numbers of candidate pairs, thus tens of thousands of new accounts can be tested
+daily. The generated case list of suspected "repetitive debtors" can be handed
+off for further investigation.
