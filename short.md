@@ -1,4 +1,4 @@
-## Fraud Detection in Telecommunications: History and Lessons Learned
+# Fraud Detection in Telecommunications: History and Lessons Learned
 Becker, Volinsky, Wills - AT&T Labs-Research - [Original paper](https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/fraud-detection-in-telecom.pdf) (2010)
 
 
