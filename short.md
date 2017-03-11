@@ -1,7 +1,21 @@
-# Fraud Detection in Telecommunications: History and Lessons Learned
-Becker, Volinsky, Wills (2010) - [Original paper](https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/fraud-detection-in-telecom.pdf)
+## Fraud Detection in Telecommunications: History and Lessons Learned
+Becker, Volinsky, Wills - AT&T Labs-Research - [Original paper](https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/fraud-detection-in-telecom.pdf) (2010)
 
-Short summary of main points and possible use cases.
+
+## Summary
+
+Key components of a fraud detection system:
+
+- **A continuing source of call detail data.** AT&T receives hundreds of thousands of files of AMA data daily from telecommunication switches around the country. Besides AMA (Automated Message Accounting), which is a comprehensive data format used for billing, other formats such as SS7 signalling data, cellular data or LIDB (Line Information Database) can be used.
+- **Database to store the data.** AT&T developed their own database system [Daytona](http://www.research.att.com/projects/Daytona/index.html?fbid=R8dDIUGTEIZ) to be able to tie data management and analysis together. Analysts can access full raw data records and take high-level summeries at the same time.
+- **A set of detection algorithms.** See below.
+- **People to verify fraud and implement corrective measures.** In the authors' experience, fraud investigation
+requires a sophisticated sequence of deduction, analysis,
+integration between organizations, social interaction, and
+decision making that can be done only by people. In their view, the purpose of a fraud detection
+system is to point the experts toward cases that might
+be fraudulent.
+- **Visualization tools to help people make diagnoses.**
 
 ## Detection
 
@@ -15,7 +29,7 @@ pattern. Increase fraud score or update signature. Signal if fraud score
 passes threshold.
 
 <details>
-  <summary>Expand</summary>
+  <summary>Details</summary>
   <br>
 A signature vector can be kept on record for each customer. The signature
 is a statistical summary of the customer's previous behavior containing data
@@ -49,7 +63,7 @@ presence of known fraudsters in a new number's social network, a probability
 of fraud is calculated and sent to investigators.
 
 <details>
-  <summary>Expand</summary>
+  <summary>Details</summary>
   <br>
 Social networks of fraudsters are another source of information that can help
 identify fraud cases. The callgraph network is a conceptualization of the 
@@ -79,7 +93,7 @@ fraud investigators.
 repetitive debtors database (RDD).
 
 <details>
-  <summary>Expand</summary>
+  <summary>Details</summary>
   <br>
 COI signatures has also been useful in tracking down fraudsters who try to 
 cover their tracks by changing their phone number, name or address. The 
@@ -96,6 +110,3 @@ off for further investigation.
 </details>
 
 
-## Visualization
-
-## Implementation
