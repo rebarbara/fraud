@@ -1,9 +1,11 @@
-# Telecom Fraud Overview
+# Fraud Detection in Telecommunications: History and Lessons Learned
+Becker, Volinsky, Wills (2010) - [Original paper](https://github.com/slaki/labor2017/blob/master/wiki/fraud-telecom-overview/fraud-detection-in-telecom.pdf)
 
+Short summary of main points and possible use cases.
 
 ## Detection
 
-#### 1. Signature-Based Alerting
+#### Signature-Based Alerting
 
 - **Goal:** Alert for numbers that exhibit suspicious behavior.
 
@@ -37,7 +39,7 @@ single case to be investigated.
 </details>
 
 
-#### 2. Graph-Based Signatures 
+#### Graph-Based Signatures 
 
 - **Goal:** Alert if a new number's social network contains known fraudsters.
 
@@ -69,7 +71,7 @@ fraud investigators.
 
 
 
-#### 3. Graph Matching
+#### Graph Matching
 
 - **Goal:** Find "repetitive debtors".
 
