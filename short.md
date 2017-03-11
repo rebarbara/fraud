@@ -35,9 +35,10 @@ generate an alert on the same number, and these alerts are combined into a
 single case to be investigated.
 </details>
 
+<br>
 
-
-#### 2. Graph-Based Signatures
+#### 2. Graph-Based Signatures 
+==============================
 
 **Purpose:** Alert if a new number's social network contains known fraudsters.
 
@@ -67,6 +68,7 @@ can be calculated for all new numbers and a ranked list can be sent to the
 fraud investigators.
 </details>
 
+<br>
 
 #### 3. Graph Matching
 
