@@ -2,9 +2,7 @@
 
 <br>
 
-### Signature-Based Alerting
-
-<hr>
+### 1. Signature-Based Alerting
 
 **Purpose:** Alert for numbers that exhibit suspicious behavior.
 
@@ -12,8 +10,6 @@
 call records. Compare new calls to the signature and to a generic fraud
 pattern. Increase fraud score or update signature. Signal if fraud score
 passes threshold.
-
-<hr>
 
 A signature vector can be kept on record for each customer. The signature
 is a statistical summary of the customer's previous behavior containing data
@@ -37,9 +33,7 @@ single case to be investigated.
 
 <br>
 
-### Graph-Based Signatures
-
-<hr>
+### 2. Graph-Based Signatures
 
 **Purpose:** Alert if a new number's social network contains known fraudsters.
 
@@ -47,8 +41,6 @@ single case to be investigated.
 containing top called numbers and top numbers that called them. Based on the
 presence of known fraudsters in a new number's social network, a probability
 of fraud is calculated and sent to investigators.
-
-<hr>
 
 Social networks of fraudsters are another source of information that can help
 identify fraud cases. The *callgraph network* is a conceptualization of the 
@@ -70,16 +62,12 @@ fraud investigators.
 
 <br>
 
-### Graph Matching
+### 3. Graph Matching
 
+**Purpose:** Find "repetitive debtors".
 
-
-**_Purpose:_** *Find "repetitive debtors".*
-
-**_Method:_** *Match COI signatures of new numbers to the signatures in the
-repetitive debtors database (RDD).*
-
-
+**Method:** Match COI signatures of new numbers to the signatures in the
+repetitive debtors database (RDD).
 
 COI signatures has also been useful in tracking down fraudsters who try to 
 cover their tracks by changing their phone number, name or address. The 
