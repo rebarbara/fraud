@@ -97,8 +97,8 @@ repetitive debtors database (RDD).
   <br>
 COI signatures has also been useful in tracking down fraudsters who try to 
 cover their tracks by changing their phone number, name or address. The 
-RDD is designed to keep a running database of COI signatures of delinquent 
-customers for this purpose. To find them, COI signatures on all new accounts 
+RDD is designed to keep a running database of COI signatures for this purpose. 
+To find such fraudsters, COI signatures on all new accounts 
 are built and matched to the signatures in the RDD.
 
 The distance function is based on the overlap between the two graphs and the 
