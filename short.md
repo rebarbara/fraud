@@ -17,7 +17,8 @@ system is to point the experts toward cases that might
 be fraudulent.
 - **Visualization tools to help people make diagnoses.**
 
-## Detection
+
+## Detection algorithms
 
 #### Signature-Based Alerting
 
