@@ -38,14 +38,13 @@ single case to be investigated.
 <br>
 
 #### 2. Graph-Based Signatures 
-==============================
 
-**Purpose:** Alert if a new number's social network contains known fraudsters.
+> **Purpose:** Alert if a new number's social network contains known fraudsters.
 
-**Method:** Community of interest (COI) signature is maintained for each customer
-containing top called numbers and top numbers that called them. Based on the
-presence of known fraudsters in a new number's social network, a probability
-of fraud is calculated and sent to investigators.
+> **Method:** Community of interest (COI) signature is maintained for each customer
+> containing top called numbers and top numbers that called them. Based on the
+> presence of known fraudsters in a new number's social network, a probability
+> of fraud is calculated and sent to investigators.
 
 <details>
   <summary>Expand</summary>
