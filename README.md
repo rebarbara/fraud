@@ -151,8 +151,57 @@ This screenshot is static and monochromatic, but real displays are fully interac
 
 ## Implementation
 
-TBA
+One of AT&T's design philosophies was to build a powerful system from
+small components, each of which did a specific small
+job well. Small tools are built using simple scripts for
+data quality checking, data distribution, data storage, and
+analysis tasks. These are gathered together
+using a UNIX-style “pipe,” so that components can get updated,
+switched around, or removed with little impact on
+the whole system. Once new types of fraud are identified, a statistical model is built to detect them, and it is easily
+plugged into the system and applied to the full data stream
+to identify new cases. 
 
+Two paradigms to manage the flow of data: "hose parts" and the "streamer".
+
+- A **“hose”** is a UNIX directory with subdirectory
+“parts.” Each part is a place where data is received, stored,
+processed, and eventually deleted. The part has subdirectories
+to accomplish these tasks. Using UNIX commands, a relatively complex set
+of generic operations can be done with a surprisingly small amount of code.
+
+A “vetter” is a typical user of the hose paradigm. The vetter receives
+files from switches holding call data in a single hose part and bundles them into larger batches,
+after performing extensive per-switch serialization checks. It
+attempts to parse each record to detect corruption as soon
+as possible and produces a single, parsable
+stream of batches with its own reliable serialization and with
+no duplicated or missing records. Other parts deal
+with compressing data, feedback mechanisms to switches when problems are discovered,
+etc.
+
+- The **"streamer"** reads the call detail record by record and for each
+record passes it though a set of plug-ins. Each plug-in has three
+functions: initialization, processing, and wrap-up. The plug-ins
+are independent of one another; each is designed to look for a
+particular kind of call detail record and extract the relevant information
+from it. The initialization routine of a plug-in often
+opens a file to hold the extracted information. The processing
+function attempts to make a very fast decision on each record,
+rejecting it quickly if it is not of interest. Otherwise it extracts a
+few fields from the call detail record and writes them to the file
+opened by the initialization function. Finally, the wrap-up closes any open files.
+
+The fraud detection software is implemented as a streamer. Files extracted from the call
+stream by each plug-in are typically processed by a job scheduled
+to run at regular time intervals. Often these jobs will apply
+thresholds of various sorts, producing alerts when appropriate.
+Each detection algorithm comprises a plug-in and the code
+that processes the extracted data to generate alerts. Plug-ins can
+themselves produce alerts if they detect from a single call that
+an alert is justified; an example of this situation is an alert based
+on a call of very long duration.
+ 
 ## Conclusion
 
 Some common themes found in cases dealing with extremely large datasets over the years at AT&T:
