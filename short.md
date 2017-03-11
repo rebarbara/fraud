@@ -11,6 +11,9 @@ call records. Compare new calls to the signature and to a generic fraud
 pattern. Increase fraud score or update signature. Signal if fraud score
 passes threshold.
 
+<details>
+  <summary>Expand</summary>
+  <br>
 A signature vector can be kept on record for each customer. The signature
 is a statistical summary of the customer's previous behavior containing data
 such as calling rate, distribution of calls by day of week, hour of day,
@@ -30,6 +33,8 @@ calling patterns that indicate fraud. AT&T uses many simple detection
 algorithms rather than one single complex model. Various algorithms may
 generate an alert on the same number, and these alerts are combined into a
 single case to be investigated.
+</details>
+
 
 <br>
 
@@ -42,6 +47,9 @@ containing top called numbers and top numbers that called them. Based on the
 presence of known fraudsters in a new number's social network, a probability
 of fraud is calculated and sent to investigators.
 
+<details>
+  <summary>Expand</summary>
+  <br>
 Social networks of fraudsters are another source of information that can help
 identify fraud cases. The *callgraph network* is a conceptualization of the 
 call detail data as a graph, where nodes are phone numbers and directed edges 
@@ -58,7 +66,7 @@ calling behavior, an extended social network can be built and visualized as a
 graph. By coloring the nodes of known fraudulent numbers, probability of fraud
 can be calculated for all new numbers and a ranked list can be sent to the 
 fraud investigators.
-
+</details>
 
 <br>
 
@@ -69,6 +77,9 @@ fraud investigators.
 **Method:** Match COI signatures of new numbers to the signatures in the
 repetitive debtors database (RDD).
 
+<details>
+  <summary>Expand</summary>
+  <br>
 COI signatures has also been useful in tracking down fraudsters who try to 
 cover their tracks by changing their phone number, name or address. The 
 RDD is designed to keep a running database of COI signatures of delinquent 
@@ -81,3 +92,4 @@ nodes. Two variants are used, both can be efficiently calculated for large
 numbers of candidate pairs, thus tens of thousands of new accounts can be tested
 daily. The generated case list of suspected "repetitive debtors" can be handed
 off for further investigation.
+</details>
