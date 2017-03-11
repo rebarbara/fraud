@@ -2,6 +2,8 @@
 
 <br>
 
+## Detection
+
 #### 1. Signature-Based Alerting
 
 **Purpose:** Alert for numbers that exhibit suspicious behavior.
@@ -35,16 +37,15 @@ generate an alert on the same number, and these alerts are combined into a
 single case to be investigated.
 </details>
 
-<br>
 
 #### 2. Graph-Based Signatures 
 
-> **Purpose:** Alert if a new number's social network contains known fraudsters.
+**Purpose:** Alert if a new number's social network contains known fraudsters.
 
-> **Method:** Community of interest (COI) signature is maintained for each customer
-> containing top called numbers and top numbers that called them. Based on the
-> presence of known fraudsters in a new number's social network, a probability
-> of fraud is calculated and sent to investigators.
+**Method:** Community of interest (COI) signature is maintained for each customer
+containing top called numbers and top numbers that called them. Based on the
+presence of known fraudsters in a new number's social network, a probability
+of fraud is calculated and sent to investigators.
 
 <details>
   <summary>Expand</summary>
@@ -67,7 +68,7 @@ can be calculated for all new numbers and a ranked list can be sent to the
 fraud investigators.
 </details>
 
-<br>
+
 
 #### 3. Graph Matching
 
@@ -92,3 +93,8 @@ numbers of candidate pairs, thus tens of thousands of new accounts can be tested
 daily. The generated case list of suspected "repetitive debtors" can be handed
 off for further investigation.
 </details>
+
+
+## Visualization
+
+## Implementation
